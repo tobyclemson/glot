@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ThePopulator" tests="1" time="0.378" failures="0" errors="1" skipped="0">
+  <testcase name="ThePopulator populates an instance of the supplied builder class with the contents of the passed hash" time="0.357">
+    <failure type="NoMethodError" message="undefined method `new' for class goforthandbuild.builders.FlatThingBuilder:Java::JavaClass">
+undefined method `new' for class goforthandbuild.builders.FlatThingBuilder:Java::JavaClass (NoMethodError)
+NoMethodError:
+undefined method `new' for class goforthandbuild.builders.FlatThingBuilder:Java::JavaClass
+     ./src/main/ruby/lib/go_forth_and_build/the_populator.rb:9:in `builder_from'
+     ./src/test/ruby/spec/go_forth_and_build/the_populator_spec.rb:12:in `(root)'    </failure>
+  </testcase>
+  <system-out>
+  </system-out>
+  <system-err>
+  </system-err>
+</testsuite>

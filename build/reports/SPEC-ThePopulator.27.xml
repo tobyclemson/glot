@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ThePopulator" tests="1" time="0.412" failures="0" errors="1" skipped="0">
+  <testcase name="ThePopulator populates an instance of the supplied builder class with the contents of the passed hash" time="0.393">
+    <failure type="NoMethodError" message="undefined method `first_attribute' for #&lt;Java::GoforthandbuildDomain::FlatThing:0x4f4a1ab7&gt;">
+undefined method `first_attribute' for #&lt;Java::GoforthandbuildDomain::FlatThing:0x4f4a1ab7&gt; (NoMethodError)
+NoMethodError:
+undefined method `first_attribute' for #&lt;Java::GoforthandbuildDomain::FlatThing:0x4f4a1ab7&gt;
+     ./src/test/ruby/spec/go_forth_and_build/the_populator_spec.rb:14:in `(root)'    </failure>
+  </testcase>
+  <system-out>
+  </system-out>
+  <system-err>
+  </system-err>
+</testsuite>

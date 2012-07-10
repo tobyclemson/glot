@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ThePopulator" tests="1" time="0.381" failures="1" errors="0" skipped="0">
+  <testcase name="ThePopulator populates an instance of the supplied builder class with the contents of the passed hash" time="0.357">
+    <failure type="RSpec::Expectations::ExpectationNotMetError" message="expected: &quot;FlatThingBuilderNope&quot;...">
+expected: "FlatThingBuilderNope"
+     got: "FlatThingBuilder" (using ==) (RSpec::Expectations::ExpectationNotMetError)
+expected: "FlatThingBuilderNope"
+     got: "FlatThingBuilder" (using ==)
+     ./src/test/ruby/spec/go_forth_and_build/the_populator_spec.rb:8:in `(root)'    </failure>
+  </testcase>
+  <system-out>
+  </system-out>
+  <system-err>
+  </system-err>
+</testsuite>

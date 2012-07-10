@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ThePopulator" tests="1" time="0.471" failures="0" errors="1" skipped="0">
+  <testcase name="ThePopulator populates an instance of the supplied builder class with the contents of the passed hash" time="0.44">
+    <failure type="NameError" message="cannot load Java class goforthandbuild.builders.FlatThingBuilder">
+cannot load Java class goforthandbuild.builders.FlatThingBuilder (NameError)
+NameError:
+cannot load Java class goforthandbuild.builders.FlatThingBuilder
+     file:/Users/tclemson/.gradle/caches/artifacts-13/filestore/org.jruby/jruby-core/1.6.7/jar/39b97126b52ade6c0b8bbb6566f52a4259be3e17/jruby-core-1.6.7.jar!/builtin/javasupport/java.rb:45:in `const_missing'
+     ./src/test/ruby/spec/something_spec.rb:5:in `(root)'    </failure>
+  </testcase>
+  <system-out>
+  </system-out>
+  <system-err>
+  </system-err>
+</testsuite>

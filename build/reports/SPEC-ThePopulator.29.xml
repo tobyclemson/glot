@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ThePopulator" tests="1" time="0.429" failures="1" errors="0" skipped="0">
+  <testcase name="ThePopulator populates an instance of the supplied builder class with the contents of the passed hash" time="0.407">
+    <failure type="RSpec::Expectations::ExpectationNotMetError" message="expected: &quot;The Cat&quot;...">
+expected: "The Cat"
+     got: "The Cat in the Hat" (using ==) (RSpec::Expectations::ExpectationNotMetError)
+expected: "The Cat"
+     got: "The Cat in the Hat" (using ==)
+     ./src/test/ruby/spec/go_forth_and_build/the_populator_spec.rb:14:in `(root)'    </failure>
+  </testcase>
+  <system-out>
+  </system-out>
+  <system-err>
+  </system-err>
+</testsuite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ThePopulator" tests="1" time="0.382" failures="0" errors="1" skipped="0">
+  <testcase name="ThePopulator populates an instance of the supplied builder class with the contents of the passed hash" time="0.358">
+    <failure type="NoMethodError" message="undefined method `&lt;=&gt;' for #&lt;Java::JavaMethod/withFirstAttribute(java.lang.String)&gt;">
+undefined method `&lt;=&gt;' for #&lt;Java::JavaMethod/withFirstAttribute(java.lang.String)&gt; (NoMethodError)
+NoMethodError:
+undefined method `&lt;=&gt;' for #&lt;Java::JavaMethod/withFirstAttribute(java.lang.String)&gt;
+     ./src/main/ruby/lib/go_forth_and_build/the_populator.rb:11:in `builder_from'
+     ./src/test/ruby/spec/go_forth_and_build/the_populator_spec.rb:12:in `(root)'    </failure>
+  </testcase>
+  <system-out>
+  </system-out>
+  <system-err>
+  </system-err>
+</testsuite>

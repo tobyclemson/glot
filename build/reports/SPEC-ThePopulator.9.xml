@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ThePopulator" tests="1" time="0.373" failures="0" errors="1" skipped="0">
+  <testcase name="ThePopulator populates an instance of the supplied builder class with the contents of the passed hash" time="0.352">
+    <failure type="NoMethodError" message="undefined method `builder_from' for #&lt;GoForthAndBuild::ThePopulator:0x1b845568&gt;">
+undefined method `builder_from' for #&lt;GoForthAndBuild::ThePopulator:0x1b845568&gt; (NoMethodError)
+NoMethodError:
+undefined method `builder_from' for #&lt;GoForthAndBuild::ThePopulator:0x1b845568&gt;
+     ./src/test/ruby/spec/go_forth_and_build/the_populator_spec.rb:12:in `(root)'    </failure>
+  </testcase>
+  <system-out>
+  </system-out>
+  <system-err>
+  </system-err>
+</testsuite>

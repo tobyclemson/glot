@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ThePopulator" tests="1" time="0.412" failures="0" errors="1" skipped="0">
+  <testcase name="ThePopulator populates an instance of the supplied builder class with the contents of the passed hash" time="0.378">
+    <failure type="NoMethodError" message="undefined method `build' for nil:NilClass">
+undefined method `build' for nil:NilClass (NoMethodError)
+NoMethodError:
+undefined method `build' for nil:NilClass
+     ./src/test/ruby/spec/go_forth_and_build/the_populator_spec.rb:14:in `(root)'    </failure>
+  </testcase>
+  <system-out>
+[#&lt;Java::JavaMethod/build()&gt;,
+ #&lt;Java::JavaMethod/withFirstAttribute(java.lang.String)&gt;,
+ #&lt;Java::JavaMethod/withSecondAttribute(java.lang.String)&gt;,
+ #&lt;Java::JavaMethod/wait()&gt;,
+ #&lt;Java::JavaMethod/wait(long)&gt;,
+ #&lt;Java::JavaMethod/wait(long,int)&gt;,
+ #&lt;Java::JavaMethod/equals(java.lang.Object)&gt;,
+ #&lt;Java::JavaMethod/toString()&gt;,
+ #&lt;Java::JavaMethod/hashCode()&gt;,
+ #&lt;Java::JavaMethod/getClass()&gt;,
+ #&lt;Java::JavaMethod/notify()&gt;,
+ #&lt;Java::JavaMethod/notifyAll()&gt;]
+  </system-out>
+  <system-err>
+  </system-err>
+</testsuite>

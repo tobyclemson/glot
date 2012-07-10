@@ -1,0 +1,49 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+
+repositories {
+    ivy {
+        url 'http://gemjars.org:8080'
+        layout 'pattern', {
+            artifact 'jars/[organization]/[module]-[revision].[ext]'
+            ivy 'ivys/[organization]/ivy-[module]-[revision].[ext]'
+        }
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.rubygems:activesupport:3.1.0'
+
+    testCompile 'org.jruby:jruby-core:1.6.7'
+    testCompile 'org.jruby:jruby-common:1.6.7'
+    testCompile 'org.jruby:jruby-stdlib:1.6.7'
+    testCompile 'org.rubygems:rspec:2.10.0'
+    testCompile 'org.rubygems:ci_reporter:1.7.0'
+}
+
+class JRubyExec extends JavaExec {
+    public JRubyExec() {
+        setMain('org.jruby.Main')
+    }
+}
+
+def mainClasspath = files("$projectDir/src/main/ruby/lib")
+
+def sourcePath = "$projectDir/src"
+def reportsPath = "$buildDir/reports"
+
+task(spec, type: JRubyExec, dependsOn: jar) {
+    inputs.dir files(sourcePath)
+    outputs.dir files(reportsPath)
+    classpath = configurations.testRuntime + runtimeClasspath + mainClasspath
+    environment CI_REPORTS: reportsPath
+    args 'classpath:bin/rspec',
+            '-r', 'rubygems',
+            '-r', 'ci/reporter/rake/rspec_loader',
+            '-f', 'CI::Reporter::RSpec',
+            '-c',
+            'src/test'
+}
+
+test.dependsOn << spec
