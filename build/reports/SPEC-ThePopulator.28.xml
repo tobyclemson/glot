@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ThePopulator" tests="1" time="0.412" failures="0" errors="0" skipped="0">
-  <testcase name="ThePopulator populates an instance of the supplied builder class with the contents of the passed hash" time="0.402">
-  </testcase>
-  <system-out>
-  </system-out>
-  <system-err>
-  </system-err>
-</testsuite>
