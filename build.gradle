@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    compile 'org.projectlombok:lombok:0.10.4'
     compile 'org.rubygems:activesupport:3.1.0'
 
     testCompile 'org.jruby:jruby-core:1.6.7'
