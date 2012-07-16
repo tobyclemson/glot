@@ -10,4 +10,12 @@ describe Glot::BuilderSpecification do
   it "should provide a population strategy for 'flatThing'" do
     subject.population_strategy_for("flatThing").should == Glot::PopulatorStrategy.new(Java::GlotBuilders::FlatThingBuilder)
   end
+
+  it "should raise MissingBuilderException if no builder found yet required" do
+    expect { subject.population_strategy_for("unbuildableThing") }.to raise_error(
+        Glot::Exceptions::MissingBuilderException,
+        'Expected to find a builder named: "UnbuildableThingBuilder" ' +
+            'but found only builders: ["FlatThingBuilder", "NestedThingBuilder"].'
+    )
+  end
 end

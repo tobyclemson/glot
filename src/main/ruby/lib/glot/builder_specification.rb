@@ -1,9 +1,11 @@
 require 'glot/populator_strategy'
+require 'glot/exceptions/missing_builder_exception'
 
 module Glot
   class BuilderSpecification
     module Builders
-      include_package "glot.builders"
+      java_import "glot.builders.FlatThingBuilder"
+      java_import "glot.builders.NestedThingBuilder"
     end
 
     def initialize builder_class
@@ -26,7 +28,9 @@ module Glot
     private
 
     def builder_for target_type
-      Glot::BuilderSpecification::Builders.const_get(builder_name_for(target_type))
+      Builders.const_get(builder_name_for(target_type))
+    rescue NameError => e
+      raise Glot::Exceptions::MissingBuilderException.new(builder_name_for(target_type), Builders)
     end
 
 

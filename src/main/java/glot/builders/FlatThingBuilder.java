@@ -9,6 +9,10 @@ public class FlatThingBuilder {
     private String secondAttribute = "Thing 2";
     private String thirdAttribute = "Thing 3";
 
+    public static FlatThingBuilder flatThingBuilder() {
+        return new FlatThingBuilder();
+    }
+
     public FlatThing build() {
         return new FlatThing(firstAttribute, secondAttribute, thirdAttribute);
     }

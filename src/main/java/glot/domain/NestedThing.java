@@ -7,11 +7,13 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class NestedThing {
-    @Getter private FlatThing flatThing;
-    @Getter private String stringThing;
+    @Getter private final FlatThing flatThing;
+    @Getter private final String stringThing;
+    @Getter private final UnbuildableThing unbuildableThing;
 
-    public NestedThing(FlatThing flatThing, String stringThing) {
+    public NestedThing(FlatThing flatThing, String stringThing, UnbuildableThing unbuildableThing) {
         this.flatThing = flatThing;
         this.stringThing = stringThing;
+        this.unbuildableThing = unbuildableThing;
     }
 }
