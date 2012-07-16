@@ -2,8 +2,10 @@ package glot.domain;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
 @EqualsAndHashCode
+@ToString
 public class FlatThing {
     @Getter private final String firstAttribute;
     @Getter private final String secondAttribute;

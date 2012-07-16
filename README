@@ -1,0 +1,41 @@
+Glot makes it easier to populate Java builder objects from Ruby.
+ 
+Population Strategy:
+
+* A populator is constructed for a given builder class
+* The populator can take a hash of attributes and populate an instance of that builder using the corresponding values
+* It does this using the following algorithm:
+** Search for a method "with#{AttributeName}" on the builder class
+** If found, inspect argument type
+** If not found error
+
+Convention:
+
+Builders follow the following conventions:
+* named according to "#{NameOfTypeBuilt}Builder"
+* have a no argument constructor
+* have a no argument "build" method
+* have many "with#{AttributeName}" methods for accumulating state.
+** in the case of a primitive type, the "with#{PrimitiveAttribute}" method takes one of:
+*** String
+*** Integer
+*** Long
+*** Float
+*** Double
+*** Boolean
+*** BigDecimal
+*** BigInteger
+** in the case of a composite type, a builder is expected to exist for that type
+** in the case of a collection, at least two methods are expected:
+*** "with#{CollectionOfTsAttribute}(? extends Iterable<T> ts)"
+*** "with#{CollectionOfTsAttribute}(T first, T... rest)"
+** in the case of a tiny type, the "with#{TinyTypeAttribute}" method takes an instance of that tiny type
+*** a tiny type is a type with a single argument constructor
+
+Error Conditions:
+* Convention violations
+* Type conversion failures
+* Attribute hash errors?
+
+Nice To Haves:
+* Validate convention conformance of builders

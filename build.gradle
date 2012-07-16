@@ -42,6 +42,7 @@ task(spec, type: JRubyExec, dependsOn: jar) {
     args 'classpath:bin/rspec',
             '-r', 'rubygems',
             '-r', 'ci/reporter/rake/rspec_loader',
+            '-r', "$projectDir/src/test/ruby/spec/spec_helper.rb",
             '-f', 'CI::Reporter::RSpec',
             '-c',
             'src/test'

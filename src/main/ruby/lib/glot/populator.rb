@@ -23,6 +23,10 @@ module Glot
       end
     end
 
+    def build_from attribute_hash
+      builder_from(attribute_hash).build
+    end
+
     def method_name_for(key)
       "with#{key.to_s.camelize}".to_sym
     end
