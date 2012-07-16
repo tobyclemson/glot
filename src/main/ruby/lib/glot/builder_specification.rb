@@ -10,11 +10,15 @@ module Glot
     end
 
     def initialize builder_class
-      @builder_class = builder_class
+      @builder_name = builder_class
     end
 
     def builder_name
-      @builder_class.java_class.simple_name
+      @builder_name.java_class.simple_name
+    end
+
+    def builder_methods
+      @builder_name.java_class.java_instance_methods.select { |m| m.name =~ /^with/ }
     end
 
     def population_strategy_for key
@@ -43,10 +47,6 @@ module Glot
 
     def builder_methods_for key
       builder_methods.find { |w| w.name == builder_method_name_for(key) }
-    end
-
-    def builder_methods
-      @builder_class.java_class.java_instance_methods.select { |m| m.name =~ /^with/ }
     end
 
     def builder_method_name_for(key)

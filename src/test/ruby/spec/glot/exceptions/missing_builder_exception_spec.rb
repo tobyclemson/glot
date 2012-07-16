@@ -8,6 +8,7 @@ describe Glot::Exceptions::MissingBuilderException do
 
   it { should == Glot::Exceptions::MissingBuilderException.new(builder_name, builder_module) }
   it { should_not == Glot::Exceptions::MissingBuilderException.new("SomeOtherThingBuilder", builder_module) }
+  it { should_not == Glot::Exceptions::MissingBuilderException.new(builder_name, Object) }
   it { should_not == Glot::Exceptions::MissingBuilderMethodException.new("SomeOtherThingBuilder", "withStuff", []) }
   its(:message) { should == 'Expected to find a builder named: "ThingBuilder" but found only builders: ["FlatThingBuilder"].' }
 end
