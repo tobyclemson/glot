@@ -1,5 +1,6 @@
 require 'glot/populator_strategy'
 require 'glot/exceptions/missing_builder_exception'
+require 'glot/exceptions/missing_builder_method_exception'
 
 module Glot
   class BuilderSpecification
@@ -12,17 +13,23 @@ module Glot
       @builder_class = builder_class
     end
 
+    def builder_name
+      @builder_class.java_class.simple_name
+    end
+
     def population_strategy_for key
-      if wither = wither_for(key)
-        target_type = wither.parameter_types.first
+      if builder_method = builder_methods_for(key)
+        target_type = builder_method.parameter_types.first
         if builder = builder_for(target_type)
           PopulatorStrategy.new(builder)
         end
+      else
+        raise Glot::Exceptions::MissingBuilderMethodException.new(builder_name, builder_method_name_for(key), builder_methods)
       end
     end
 
     def has_method_for_key? key
-      withers.map(&:name).include?(method_name_for(key))
+      builder_methods.map(&:name).include?(builder_method_name_for(key))
     end
 
     private
@@ -34,15 +41,15 @@ module Glot
     end
 
 
-    def wither_for key
-      withers.find { |w| w.name == method_name_for(key) }
+    def builder_methods_for key
+      builder_methods.find { |w| w.name == builder_method_name_for(key) }
     end
 
-    def withers
+    def builder_methods
       @builder_class.java_class.java_instance_methods.select { |m| m.name =~ /^with/ }
     end
 
-    def method_name_for(key)
+    def builder_method_name_for(key)
       "with#{key.to_s.camelize}"
     end
 

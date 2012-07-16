@@ -18,4 +18,11 @@ describe Glot::BuilderSpecification do
             'but found only builders: ["FlatThingBuilder", "NestedThingBuilder"].'
     )
   end
+
+  it "should raise MissingBuilderMethodException if no builder method found yet required" do
+    expect { subject.population_strategy_for("missingAttribute") }.to raise_error(
+        Glot::Exceptions::MissingBuilderMethodException,
+        'Expected to find a method named: "withMissingAttribute" on builder of type: "NestedThingBuilder" ' +
+            'but found only methods: ["withFlatThing", "withStringThing", "withUnbuildableThing"].')
+  end
 end
