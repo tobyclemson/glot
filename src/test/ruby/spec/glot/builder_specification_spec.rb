@@ -1,8 +1,8 @@
 require 'glot/builder_specification'
 
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
-
 describe Glot::BuilderSpecification do
+  include Glot::Test::Matchers
+
   subject { Glot::BuilderSpecification.new(Java::GlotBuilders::NestedThingBuilder) }
 
   it { should have_method_for_key "flatThing" }
@@ -12,11 +12,8 @@ describe Glot::BuilderSpecification do
   end
 
   it "should raise MissingBuilderException if no builder found yet required" do
-    expect { subject.population_strategy_for("unbuildableThing") }.to raise_error(
-        Glot::Exceptions::MissingBuilderException,
-        'Expected to find a builder named: "UnbuildableThingBuilder" ' +
-            'but found only builders: ["FlatThingBuilder", "NestedThingBuilder"].'
-    )
+    expect { subject.population_strategy_for("unbuildableThing") }.to raise_error_equal_to(
+        Glot::Exceptions::MissingBuilderException.new("UnbuildableThingBuilder", Glot::BuilderSpecification::Builders))
   end
 
   it "should raise MissingBuilderMethodException if no builder method found yet required" do
